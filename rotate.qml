@@ -40,12 +40,17 @@ Rectangle{
             if (Math.abs(currentangle) < 1){
                 rotatable.color = "green"
             }
+            else if(Math.abs(Math.abs(currentangle) - 180) < 1){
+                rotatable.color = "green"
+            }
             else{
                 rotatable.color = "blue"
             }
         }
         onPinchFinished:{
-            if (Math.abs(currentangle) < 1){
+            console.log("Current angle: " + Math.abs(currentangle))
+            if (Math.abs(currentangle) < 1 ||
+                Math.abs(Math.abs(currentangle) - 180) < 1){
                 console.log("SUCCESS!")
                 timer.running = false
                 Qt.quit()
